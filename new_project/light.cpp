@@ -12,11 +12,14 @@ light::light(player * gamer)
 	}
 };
 
-void light::lineSight(player * gamer, sf::RenderWindow * window)
+void light::lineSight(player * gamer, sf::RenderWindow * window, line * obj)
 {
 	for (int i = 0; i < 10; i++)
 	{
 		lineSightArr[i].lineMoving((*gamer).x + 10, (*gamer).y + 10, gamer->rot);
-		lineSightArr[i].drawLine(window);
+		if (lineSightArr[i].crossCheck(obj))
+		{
+			lineSightArr[i].drawLine(window);
+		}
 	}
 };

@@ -1,5 +1,5 @@
 #include "line.h"
-
+#include <iostream>
 line::line()
 {
 
@@ -40,8 +40,12 @@ bool line::crossCheck(line * obj)
 	//sf::Vector2f vecLights = lin[1].position - lin[0].position;
 	sf::Vector2f vec1 = (*obj).lin[0].position - lin[0].position;
 	sf::Vector2f vec2 = (*obj).lin[0].position - lin[1].position;
-	int cross = vec1.x * vec2.x + vec1.y * vec2.y;
-	if (cross < 0)
+	sf::Vector2f vec3 = (*obj).lin[1].position - lin[0].position;
+	sf::Vector2f vec4 = (*obj).lin[1].position - lin[1].position;
+	float cross1 = vec1.x * vec2.x + vec1.y * vec2.y;
+	float cross2 = vec3.x * vec4.x + vec3.y * vec4.y;
+	std::cout << "!!!" << cross1 << "!!!\n";
+	if (cross1 < 0 || cross2 < 0)
 	{
 		return true;
 	}
