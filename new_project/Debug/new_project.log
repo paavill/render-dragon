@@ -1,0 +1,21 @@
+﻿  light.cpp
+D:\MY FOLDER\C#\c++\new_project\new_project\light.cpp(11,146): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\MY FOLDER\C#\c++\new_project\new_project\light.cpp(11,76): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+  line.cpp
+D:\MY FOLDER\C#\c++\new_project\new_project\line.cpp(12,25): warning C4244: =: преобразование "T" в "int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\MY FOLDER\C#\c++\new_project\new_project\line.cpp(13,25): warning C4244: =: преобразование "T" в "int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\MY FOLDER\C#\c++\new_project\new_project\line.cpp(14,15): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  main.cpp
+D:\MY FOLDER\C#\c++\new_project\new_project\main.cpp(39,16): warning C4244: аргумент: преобразование "sf::Int64" в "int", возможна потеря данных
+D:\MY FOLDER\C#\c++\new_project\new_project\main.cpp(17,8): warning C4101: mouse: неиспользованная локальная переменная
+D:\MY FOLDER\C#\c++\new_project\new_project\main.cpp(15,11): warning C4101: key: неиспользованная локальная переменная
+  Создание кода...
+  new_project.vcxproj -> D:\MY FOLDER\C#\c++\new_project\Debug\new_project.exe
