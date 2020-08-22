@@ -24,6 +24,16 @@ void player::moving(int deltaTime)
 		x = x - (2 * cos(rot) + deltaTime) / 1;
 		y = y - (2 * sin(rot) + deltaTime) / 1;
 	}
+	if (key.isKeyPressed(key.A))
+	{
+		x = x + (2 * sin(rot) + deltaTime) / 1;
+		y = y - (2 * cos(rot) + deltaTime) / 1;
+	}
+	if (key.isKeyPressed(key.D))
+	{
+		x = x - (2 * sin(rot) + deltaTime) / 1;
+		y = y + (2 * cos(rot) + deltaTime) / 1;
+	}
 };
 
 void player::rotation(sf::RenderWindow * window)

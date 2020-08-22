@@ -21,7 +21,7 @@ int main()
 	player gamer = player(20, 20, 0);
 	light ligh = light(&gamer);
 	line dirline = line(gamer.x,gamer.y,gamer.x + 80, gamer.y);
-	line obj = line(512, 300, 412, 400);
+	line obj = line(512, 200, 512, 500);
 
 	while (window.isOpen())
 	{
@@ -46,7 +46,7 @@ int main()
 		float* dist = ligh.lineSight(&gamer, &window, &obj);
 		window.draw(rec);
 
-		std::cout << gamer.rot <<"|x:"<<gamer.x<<"|y:"<<gamer.y<<"|"<<dirline.lin[0].position.x<<"\n";
+		std::cout << gamer.rot <<"|x:"<<gamer.x<<"|y:"<<gamer.y<<"|\n";
 
 		time = tm.asMicroseconds();
 		window.display();

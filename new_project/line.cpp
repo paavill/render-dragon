@@ -37,7 +37,8 @@ void line::lineMoving(float x1, float y1, float rot)
 
 bool line::crossCheck(line* obj)
 {
-	bool cross = false;
+	bool cross1 = false;
+	bool cross2 = false;
 	sf::Vector2f main = (*obj).lin[1].position - (*obj).lin[0].position;
 	main.x = main.x / (*obj).leaght;
 	main.y = main.y / (*obj).leaght;
@@ -49,7 +50,6 @@ bool line::crossCheck(line* obj)
 
 	sf::Vector2f vecKN = vec1n - main;
 
-	//,std::cout << chtv1 << "!!!\n";
 	sf::Vector2f vec2k = -(*obj).lin[0].position + lin[1].position;
 	leaght = sqrt(vec2k.x * vec2k.x + vec2k.y * vec2k.y);
 	vec2k.x = vec2k.x / leaght;
@@ -61,16 +61,100 @@ bool line::crossCheck(line* obj)
 
 	if (sklr <= 0)
 	{
-		cross = true;
+		cross1 = true;
 	}
 
-	return cross;
+	main = -(*obj).lin[1].position + (*obj).lin[0].position;
+	main.x = main.x / (*obj).leaght;
+	main.y = main.y / (*obj).leaght;
+
+	vec1n = -(*obj).lin[1].position + lin[0].position;
+	leaght = sqrt(vec1n.x * vec1n.x + vec1n.y * vec1n.y);
+	vec1n.x = vec1n.x / leaght;
+	vec1n.y = vec1n.y / leaght;
+
+	vecKN = vec1n - main;
+
+	vec2k = -(*obj).lin[1].position + lin[1].position;
+	leaght = sqrt(vec2k.x * vec2k.x + vec2k.y * vec2k.y);
+	vec2k.x = vec2k.x / leaght;
+	vec2k.y = vec2k.y / leaght;
+
+	vecKK = vec2k - main;
+
+	sklr = vecKN.x * vecKK.x + vecKN.y * vecKK.y;
+
+	if (sklr <= 0)
+	{
+		cross2 = true;
+	}
+	
+	if (cross1 == true && cross2 == true)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 };
 
-float crossDist(line* obj)
+float line::crossDist(line* obj, sf::RenderWindow* window)
 {
-	obj->
-	return 20.f;
+	sf::Vector2f main = (*obj).lin[1].position - (*obj).lin[0].position;
+	main.x = main.x / (*obj).leaght;
+	main.y = main.y / (*obj).leaght;
+
+	sf::Vector2f vec1 = -(*obj).lin[0].position + lin[0].position;
+	float leaghtt = sqrt(vec1.x * vec1.x + vec1.y * vec1.y);
+	vec1.x = vec1.x / leaghtt;
+	vec1.y = vec1.y / leaghtt;
+
+	double COSsklr1 = main.x * vec1.x + main.y * vec1.y;
+	COSsklr1 = acos(COSsklr1);
+
+	main = lin[1].position - lin[0].position;
+	main.x = (float)main.x / leaght;
+	main.y = (float)main.y / leaght;
+
+	vec1 = (*obj).lin[0].position - lin[0].position;
+	leaghtt = sqrt(vec1.x * vec1.x + vec1.y * vec1.y);
+	vec1.x = vec1.x / leaghtt;
+	vec1.y = vec1.y / leaghtt;
+
+	double COSsklr2 = main.x * vec1.x + main.y * vec1.y;
+	COSsklr2 = acos(COSsklr2);
+
+	double SINsklr3 = sin(M_PI - COSsklr1 - COSsklr2);
+
+	double a = leaghtt / SINsklr3;
+	
+	double SINsklr2 = sin(sqrt(1 - cos(COSsklr2)* cos(COSsklr2)));
+
+	a = a * SINsklr2;
+
+	SINsklr2 = (*obj).dy / (*obj).leaght;
+	COSsklr2 = (*obj).dx / (*obj).leaght;
+
+	main.x = a * COSsklr2;
+	main.y = a * SINsklr2;
+
+	std::cout << main.y << "!!!\n";
+
+	sf::RectangleShape r;
+	sf::Vertex point;
+	point.position = (*obj).lin[0].position + main;
+	
+	r.setSize(sf::Vector2f(10, 10));
+	r.setFillColor(sf::Color(255, 0, 0, 128));
+	r.setPosition(point.position.x, point.position.y);
+	(*window).draw(r);
+	main = point.position - lin[0].position;
+
+
+	leaghtt = sqrt(main.x * main.x - main.y * main.y);
+
+	return leaghtt;
 };
 
 void line::drawLine(sf::RenderWindow * window)
