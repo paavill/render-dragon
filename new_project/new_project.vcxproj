@@ -148,11 +148,13 @@
     <ClCompile Include="light.cpp" />
     <ClCompile Include="line.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mainRender.cpp" />
     <ClCompile Include="player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="light.h" />
     <ClInclude Include="line.h" />
+    <ClInclude Include="mainRender.h" />
     <ClInclude Include="player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,23 +1,20 @@
 #include "light.h"
-#include "line.h"
-#include "player.h"
-#include<iostream>
-#include<Windows.h>
 
 light::light(player * gamer) 
 {
-	for (int i = 0; i < 10; i++)
+	int del = 3 * (NUMBRAYS - 1);
+	for (int i = 0; i < NUMBRAYS; i++)
 	{
-		lineSightArr[i] = line((*gamer).x + 10, (*gamer).y + 10, (*gamer).x + 10 + (float)80 * cos((*gamer).rot - M_PI/6 + M_PI*i/27), (*gamer).y + 10 + (float)80 * sin((*gamer).rot -M_PI / 6 + M_PI * i / 27));
+		lineSightArr[i] = line((*gamer).x + 10, (*gamer).y + 10, (*gamer).x + 10 + 180 * cos((*gamer).rot - M_PI/6 + M_PI*i/ del), (*gamer).y + 10 + 180 * sin((*gamer).rot - M_PI / 6 + M_PI * i / del));
 	}
 };
 
-float * light::lineSight(player * gamer, sf::RenderWindow * window, line * obj)
+void light::lineSight(player * gamer, sf::RenderWindow * window, line * obj, float * dist)
 {
-	float dist[10];
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < NUMBRAYS; i++)
 	{
 		lineSightArr[i].lineMoving((*gamer).x + 10, (*gamer).y + 10, gamer->rot);
+		
 		if (lineSightArr[i].crossCheck(obj))
 		{
 			dist[i] = lineSightArr[i].crossDist(obj, window);
@@ -25,8 +22,8 @@ float * light::lineSight(player * gamer, sf::RenderWindow * window, line * obj)
 		}
 		else
 		{
-			dist[i] = -1.f;
+			//lineSightArr[i].drawLine(window);
+			dist[i] = (float)-1;
 		}
 	}
-	return dist;
 };
