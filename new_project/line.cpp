@@ -37,15 +37,30 @@ void line::lineMoving(float x1, float y1,float rot)
 
 bool line::crossCheck(line * obj)
 {
-	//sf::Vector2f vecLights = lin[1].position - lin[0].position;
-	sf::Vector2f vec1 = (*obj).lin[0].position - lin[0].position;
-	sf::Vector2f vec2 = (*obj).lin[0].position - lin[1].position;
-	sf::Vector2f vec3 = (*obj).lin[1].position - lin[0].position;
-	sf::Vector2f vec4 = (*obj).lin[1].position - lin[1].position;
-	float cross1 = vec1.x * vec2.x + vec1.y * vec2.y;
-	float cross2 = vec3.x * vec4.x + vec3.y * vec4.y;
-	std::cout << "!!!" << cross1 << "!!!\n";
-	if (cross1 < 0 || cross2 < 0)
+	double sign = 1;
+	int chtv = 0;
+	sf::Vector2f main = (*obj).lin[1].position - (*obj).lin[0].position;
+	main.x = main.x / (*obj).leaght;
+	main.y = main.y / (*obj).leaght;
+
+	sf::Vector2f vec1n = - (*obj).lin[0].position + lin[0].position;
+	float leaght = sqrt(vec1n.x* vec1n.x + vec1n.y* vec1n.y);
+	vec1n.x = vec1n.x / leaght;
+	vec1n.y = vec1n.y / leaght;
+
+	sf::Vector2f vecKN = vec1n - main;
+
+	//,std::cout << chtv1 << "!!!\n";
+	sf::Vector2f vec2k = - (*obj).lin[0].position + lin[1].position;
+	leaght = sqrt(vec2k.x * vec2k.x + vec2k.y * vec2k.y);
+	vec2k.x = vec2k.x / leaght;
+	vec2k.y = vec2k.y / leaght;
+
+	sf::Vector2f vecKK = vec2k - main;
+
+	double sklr = vecKN.x * vecKK.x + vecKN.y * vecKK.y;
+
+	if (sklr <= 0)
 	{
 		return true;
 	}

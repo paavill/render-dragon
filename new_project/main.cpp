@@ -21,7 +21,7 @@ int main()
 	player gamer = player(20, 20, 0);
 	light ligh = light(&gamer);
 	line dirline = line(gamer.x,gamer.y,gamer.x + 80, gamer.y);
-	line obj = line(512, 200, 512, 520);
+	line obj = line(512, 300, 412, 400);
 
 	while (window.isOpen())
 	{

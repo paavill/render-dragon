@@ -11,7 +11,7 @@ D:\MY FOLDER\C#\c++\new_project\new_project\line.cpp(13,25): warning C4244: =: �
           ]
 D:\MY FOLDER\C#\c++\new_project\new_project\line.cpp(14,15): warning C4244: =: преобразование "double" в "int", возможна потеря данных
   Создание кода
-  3 of 36 functions ( 8.3%) were compiled, the rest were copied from previous compilation.
+  12 of 40 functions (30.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
