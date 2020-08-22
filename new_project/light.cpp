@@ -12,14 +12,20 @@ light::light(player * gamer)
 	}
 };
 
-void light::lineSight(player * gamer, sf::RenderWindow * window, line * obj)
+float * light::lineSight(player * gamer, sf::RenderWindow * window, line * obj)
 {
+	float dist[10];
 	for (int i = 0; i < 10; i++)
 	{
 		lineSightArr[i].lineMoving((*gamer).x + 10, (*gamer).y + 10, gamer->rot);
 		if (lineSightArr[i].crossCheck(obj))
 		{
+			dist[i] = lineSightArr[i].crossDist(obj);
 			lineSightArr[i].drawLine(window);
+		}
+		else
+		{
+			dist[i] = -1.f;
 		}
 	}
 };

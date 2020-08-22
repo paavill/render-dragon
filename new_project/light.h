@@ -10,7 +10,7 @@ public:
 
 	light(player * gamer);
 
-	void lineSight(player * gamer, sf::RenderWindow * window, line* obj);
+	float * lineSight(player * gamer, sf::RenderWindow * window, line* obj);
 
 };
 

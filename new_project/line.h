@@ -16,6 +16,7 @@ public:
 
 	void lineMoving(float x1, float y1, float rot);
 	void drawLine(sf::RenderWindow * window);
-	bool crossCheck(line * obj);
+	bool crossCheck(line* obj);
+	float crossDist(line* obj);
 };
 

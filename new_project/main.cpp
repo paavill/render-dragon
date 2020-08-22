@@ -43,7 +43,7 @@ int main()
 		dirline.lineMoving(gamer.x+10, gamer.y+10, gamer.rot);
 		dirline.drawLine(&window);
 		obj.drawLine(&window);
-		ligh.lineSight(&gamer, &window, &obj);
+		float* dist = ligh.lineSight(&gamer, &window, &obj);
 		window.draw(rec);
 
 		std::cout << gamer.rot <<"|x:"<<gamer.x<<"|y:"<<gamer.y<<"|"<<dirline.lin[0].position.x<<"\n";

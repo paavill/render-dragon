@@ -18,7 +18,7 @@ line::line(float x1, float y1, float x2, float y2)
 	}
 };
 
-void line::lineMoving(float x1, float y1,float rot)
+void line::lineMoving(float x1, float y1, float rot)
 {
 	int cof = 0;
 	if (dy < 0)
@@ -32,26 +32,25 @@ void line::lineMoving(float x1, float y1,float rot)
 	float sn = (float)dy / leaght;
 	float cs = (float)dx / leaght;
 	lin[0].position = sf::Vector2f(x1, y1);
-	lin[1].position = sf::Vector2f(x1 + (float)leaght * cos(rot +cof*acos(cs)), y1 + (float)leaght * sin(rot+cof*acos(cs)));
-}
+	lin[1].position = sf::Vector2f(x1 + (float)leaght * cos(rot + cof * acos(cs)), y1 + (float)leaght * sin(rot + cof * acos(cs)));
+};
 
-bool line::crossCheck(line * obj)
+bool line::crossCheck(line* obj)
 {
-	double sign = 1;
-	int chtv = 0;
+	bool cross = false;
 	sf::Vector2f main = (*obj).lin[1].position - (*obj).lin[0].position;
 	main.x = main.x / (*obj).leaght;
 	main.y = main.y / (*obj).leaght;
 
-	sf::Vector2f vec1n = - (*obj).lin[0].position + lin[0].position;
-	float leaght = sqrt(vec1n.x* vec1n.x + vec1n.y* vec1n.y);
+	sf::Vector2f vec1n = -(*obj).lin[0].position + lin[0].position;
+	float leaght = sqrt(vec1n.x * vec1n.x + vec1n.y * vec1n.y);
 	vec1n.x = vec1n.x / leaght;
 	vec1n.y = vec1n.y / leaght;
 
 	sf::Vector2f vecKN = vec1n - main;
 
 	//,std::cout << chtv1 << "!!!\n";
-	sf::Vector2f vec2k = - (*obj).lin[0].position + lin[1].position;
+	sf::Vector2f vec2k = -(*obj).lin[0].position + lin[1].position;
 	leaght = sqrt(vec2k.x * vec2k.x + vec2k.y * vec2k.y);
 	vec2k.x = vec2k.x / leaght;
 	vec2k.y = vec2k.y / leaght;
@@ -62,13 +61,17 @@ bool line::crossCheck(line * obj)
 
 	if (sklr <= 0)
 	{
-		return true;
+		cross = true;
 	}
-	else
-	{
-		return false;
-	}
-}
+
+	return cross;
+};
+
+float crossDist(line* obj)
+{
+	obj->
+	return 20.f;
+};
 
 void line::drawLine(sf::RenderWindow * window)
 {
