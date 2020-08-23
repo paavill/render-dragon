@@ -22,7 +22,6 @@ void light::lineSight(player * gamer, sf::RenderWindow * window, line * obj, flo
 		}
 		else
 		{
-			//lineSightArr[i].drawLine(window);
 			dist[i] = (float)-1;
 		}
 	}

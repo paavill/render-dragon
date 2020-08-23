@@ -21,18 +21,32 @@ line::line(float x1, float y1, float x2, float y2)
 void line::lineMoving(float x1, float y1, float rot)
 {
 	int cof = 0;
-	if (dy < 0)
+	float sn = (float)dy / leaght;
+	float cs = (float)dx / leaght;
+	if (sn > 0)
 	{
-		cof = -1;
+		if (cs > 0)
+		{
+			sn = asin(sn);
+		}
+		else
+		{
+			sn = M_PI - asin(sn);
+		}
 	}
 	else
 	{
-		cof = 1;
+		if (cs > 0)
+		{
+			sn = 2*M_PI + asin(sn);
+		}
+		else
+		{
+			sn = M_PI - asin(sn);
+		}
 	}
-	float sn = (float)dy / leaght;
-	float cs = (float)dx / leaght;
 	lin[0].position = sf::Vector2f(x1, y1);
-	lin[1].position = sf::Vector2f(x1 + (float)leaght * cos(rot + cof * acos(cs)), y1 + (float)leaght * sin(rot + cof * acos(cs)));
+	lin[1].position = sf::Vector2f(x1 + (float)leaght * cos(rot + sn), y1 + (float)leaght * sin(rot + sn));
 };
 
 bool line::crossCheck(line* obj)
@@ -150,7 +164,6 @@ float line::crossDist(line* obj, sf::RenderWindow* window)
 	main = point.position - lin[0].position;
 
 	leaghtt = sqrt(main.x * main.x + main.y * main.y);
-	std::cout <<"!!!"<< leaghtt << "!!!\n";
 	return leaghtt;
 };
 

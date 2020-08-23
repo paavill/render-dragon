@@ -28,12 +28,14 @@ int main()
 	player gamer = player(20, 20, 0);
 	light ligh = light(&gamer);
 	line dirline = line(gamer.x,gamer.y,gamer.x + 80, gamer.y);
-	line obj = line(512, 200, 512, 500);
+	line obj[2];
+	obj[0] = line(0,0,1024,0);
+	obj[1] = line(200, 360, 100, 720);
 	mainRender renderM;
 	float dist[NUMBRAYS];
 	while (window.isOpen())
 	{
-		time = tm.asMilliseconds();
+		time = tm.asMicroseconds();
 		if (key.isKeyPressed(key.LControl))
 		{
 			window.setMouseCursorVisible(true);
@@ -61,20 +63,33 @@ int main()
 		rec.setFillColor(Color(255, 255, 255, 128));
 		dirline.lineMoving(gamer.x+10, gamer.y+10, gamer.rot);
 		dirline.drawLine(&window);
-		obj.drawLine(&window);
-		ligh.lineSight(&gamer, &window, &obj, dist);
+	
+		/*obj[0].drawLine(&window);
+		ligh.lineSight(&gamer, &window, &obj[0], dist);
 		renderM.ps3dObjRend(&window, dist);
+		for (int k = 0; k < NUMBRAYS; k++)
+		{
+			dist[k] = -1;
+		}*/
+		obj[1].drawLine(&window);
+		ligh.lineSight(&gamer, &window, &obj[1], dist);
+		renderM.ps3dObjRend(&window, dist);
+		for (int k = 0; k < NUMBRAYS; k++)
+		{
+			dist[k] = -1;
+		}
+		
 		window.draw(rec);
 
 		std::cout << gamer.rot <<"|x:"<<gamer.x<<"|y:"<<gamer.y<<"|\n";
 
-		time1 = tm.asMilliseconds();
+		time1 = tm.asMicroseconds();
 		dtime = time1 - time;
 		if (dtime < 1)
 		{
 			dtime = 1;
 		}
-		window.setTitle("somesing!"+to_string(1000 / dtime));
+		window.setTitle("somesing!"+to_string(1e6 / dtime));
 		window.display();
 	}
 	return 0;

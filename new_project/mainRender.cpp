@@ -13,7 +13,6 @@ void mainRender::ps3dObjRend(sf::RenderWindow* window, float * dist)
 	{
 		rec[i].setFillColor(sf::Color(255, 255, 255, 128));
 		h = (float)20/ dist[i];
-		std::cout << h << "???\n";
 		if (dist[i] > 0)
 		{
 			rec[i].setSize(sf::Vector2f(width,(float) h * 720));
