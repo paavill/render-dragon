@@ -10,6 +10,7 @@ public:
 	mainRender();
 
 	void ps3dObjRend(sf::RenderWindow * window, float* dist);
-	void floarRend(sf::RenderWindow* window);
+	void floarANskyRend(sf::RenderWindow* window);
+	
 };
 

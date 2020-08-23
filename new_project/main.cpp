@@ -68,7 +68,7 @@ int main()
 		dirline.lineMoving(gamer.x+10, gamer.y+10, gamer.rot);
 		//dirline.drawLine(&window);
 	
-		renderM.floarRend(&window);
+		renderM.floarANskyRend(&window);
 		for (int i = 0; i < 5; i++)
 		{
 			//obj[i].drawLine(&window);

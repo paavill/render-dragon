@@ -14,7 +14,7 @@ void mainRender::ps3dObjRend(sf::RenderWindow* window, float * dist)
 	{
 		h = (float)22/ dist[i];
 		
-		cl = (int)255 * h;
+		cl = (int)255 * h + 30;
 		if (cl > 255)
 		{
 			cl = 255;
@@ -29,9 +29,17 @@ void mainRender::ps3dObjRend(sf::RenderWindow* window, float * dist)
 	}
 }
 
-void mainRender::floarRend(sf::RenderWindow* window)
+void mainRender::floarANskyRend(sf::RenderWindow* window)
 {
 	sf::RectangleShape floar[NUMBRAYS];
+	sf::RectangleShape sky[NUMBRAYS];
+	for (int k = 0; k < NUMBRAYS; k++)
+	{
+		sky[k].setFillColor(sf::Color(50, 50, 255, 255));
+		sky[k].setSize(sf::Vector2f(1024, 3.6));
+		sky[k].setPosition(sf::Vector2f(0, 3.6 * k));
+		(*window).draw(sky[k]);
+	}
 	for (int k = 0; k < NUMBRAYS; k++)
 	{
 		floar[k].setFillColor(sf::Color(k + 20, k + 20, 0, 255));
