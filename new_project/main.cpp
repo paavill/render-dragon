@@ -28,9 +28,13 @@ int main()
 	player gamer = player(20, 20, 0);
 	light ligh = light(&gamer);
 	line dirline = line(gamer.x,gamer.y,gamer.x + 80, gamer.y);
-	line obj[2];
+	line obj[5];
+	
 	obj[0] = line(0,0,1024,0);
-	obj[1] = line(200, 360, 100, 720);
+	obj[1] = line(1024, 0, 1024, 720);
+	obj[2] = line(1024, 720, 0, 720);
+	obj[3] = line(0, 720, 0, 0);
+	obj[4] = line(200, 360, 100, 720);
 	mainRender renderM;
 	float dist[NUMBRAYS];
 	while (window.isOpen())
@@ -62,24 +66,21 @@ int main()
 		rec.setPosition(gamer.x, gamer.y);
 		rec.setFillColor(Color(255, 255, 255, 128));
 		dirline.lineMoving(gamer.x+10, gamer.y+10, gamer.rot);
-		dirline.drawLine(&window);
+		//dirline.drawLine(&window);
 	
-		/*obj[0].drawLine(&window);
-		ligh.lineSight(&gamer, &window, &obj[0], dist);
-		renderM.ps3dObjRend(&window, dist);
-		for (int k = 0; k < NUMBRAYS; k++)
+		renderM.floarRend(&window);
+		for (int i = 0; i < 5; i++)
 		{
-			dist[k] = -1;
-		}*/
-		obj[1].drawLine(&window);
-		ligh.lineSight(&gamer, &window, &obj[1], dist);
-		renderM.ps3dObjRend(&window, dist);
-		for (int k = 0; k < NUMBRAYS; k++)
-		{
-			dist[k] = -1;
+			//obj[i].drawLine(&window);
+			ligh.lineSight(&gamer, &window, &obj[i], dist);
+			renderM.ps3dObjRend(&window, dist);
+			for (int k = 0; k < NUMBRAYS; k++)
+			{
+				dist[k] = -1;
+			}
 		}
 		
-		window.draw(rec);
+		//window.draw(rec);
 
 		std::cout << gamer.rot <<"|x:"<<gamer.x<<"|y:"<<gamer.y<<"|\n";
 
@@ -89,7 +90,7 @@ int main()
 		{
 			dtime = 1;
 		}
-		window.setTitle("somesing!"+to_string(1e6 / dtime));
+		window.setTitle("somesing!"+to_string( dtime));
 		window.display();
 	}
 	return 0;

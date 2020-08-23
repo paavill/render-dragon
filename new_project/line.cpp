@@ -147,8 +147,8 @@ float line::crossDist(line* obj, sf::RenderWindow* window)
 
 	a = a * SINsklr2;
 
-	SINsklr2 = (*obj).dy / (*obj).leaght;
-	COSsklr2 = (*obj).dx / (*obj).leaght;
+	SINsklr2 = (float)(*obj).dy / (*obj).leaght;
+	COSsklr2 = (float)(*obj).dx / (*obj).leaght;
 
 	main.x = a * COSsklr2;
 	main.y = a * SINsklr2;
@@ -156,14 +156,14 @@ float line::crossDist(line* obj, sf::RenderWindow* window)
 	sf::RectangleShape r;
 	sf::Vertex point;
 	point.position = (*obj).lin[0].position + main;
-	
 	r.setSize(sf::Vector2f(10, 10));
 	r.setFillColor(sf::Color(255, 0, 0, 128));
 	r.setPosition(point.position.x - 5, point.position.y - 5);
-	(*window).draw(r);
+	//(*window).draw(r);
 	main = point.position - lin[0].position;
 
 	leaghtt = sqrt(main.x * main.x + main.y * main.y);
+	
 	return leaghtt;
 };
 
