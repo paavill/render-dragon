@@ -10,29 +10,29 @@ player::player(float xk, float yk, float rotk)
 	rot = rotk;
 };
 
-void player::moving(int deltaTime)
+void player::moving()
 {
 	sf::Keyboard key;
 
 	if (key.isKeyPressed(key.W))
 	{
-		x = x + (2 * cos(rot) + deltaTime) / 1;
-		y = y + (2 * sin(rot) + deltaTime) / 1;
+		x = x + (2 * cos(rot)) / 1;
+		y = y + (2 * sin(rot)) / 1;
 	}
 	if (key.isKeyPressed(key.S))
 	{
-		x = x - (2 * cos(rot) + deltaTime) / 1;
-		y = y - (2 * sin(rot) + deltaTime) / 1;
+		x = x - (2 * cos(rot)) / 1;
+		y = y - (2 * sin(rot)) / 1;
 	}
 	if (key.isKeyPressed(key.A))
 	{
-		x = x + (2 * sin(rot) + deltaTime) / 1;
-		y = y - (2 * cos(rot) + deltaTime) / 1;
+		x = x + (2 * sin(rot)) / 1;
+		y = y - (2 * cos(rot)) / 1;
 	}
 	if (key.isKeyPressed(key.D))
 	{
-		x = x - (2 * sin(rot) + deltaTime) / 1;
-		y = y + (2 * cos(rot) + deltaTime) / 1;
+		x = x - (2 * sin(rot)) / 1;
+		y = y + (2 * cos(rot)) / 1;
 	}
 };
 

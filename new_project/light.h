@@ -5,7 +5,7 @@
 #include<iostream>
 #include<Windows.h>
 #ifndef NUMBRAYS
-#define NUMBRAYS 340
+#define NUMBRAYS 341
 #endif // !NUMBRAYS
 
 class light

@@ -1,29 +1,9 @@
-﻿  mainRender.cpp
+﻿  main.cpp
 D:\MY FOLDER\C#\c++\new_project\new_project\mainRender.h(6,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-D:\MY FOLDER\C#\c++\new_project\new_project\mainRender.cpp(17,21): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-D:\MY FOLDER\C#\c++\new_project\new_project\mainRender.cpp(39,40): warning C4305: аргумент: усечение из "double" в "T"
-          with
-          [
-              T=float
-          ]
-D:\MY FOLDER\C#\c++\new_project\new_project\mainRender.cpp(40,42): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
-          with
-          [
-              T=float
-          ]
-D:\MY FOLDER\C#\c++\new_project\new_project\mainRender.cpp(46,42): warning C4305: аргумент: усечение из "double" в "T"
-          with
-          [
-              T=float
-          ]
-D:\MY FOLDER\C#\c++\new_project\new_project\mainRender.cpp(47,44): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
-          with
-          [
-              T=float
-          ]
+D:\MY FOLDER\C#\c++\new_project\new_project\main.cpp(20,8): warning C4101: mouse: неиспользованная локальная переменная
   Создание кода
-  1 of 131 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+  1 of 44 functions ( 2.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   new_project.vcxproj -> D:\MY FOLDER\C#\c++\new_project\Release\new_project.exe

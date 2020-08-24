@@ -14,7 +14,7 @@ public:
 
 	player(float xk, float yk, float rotk);
 
-	void moving(int deltaTime);
+	void moving();
 
 	void rotation(sf::RenderWindow * window);
 };
